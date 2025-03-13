@@ -5,8 +5,11 @@ const schoolRoutes = require("./routes/schoolRoutes");
 
 const app = express();
 app.use(bodyParser.json());
+
+// Enable CORS
 app.use(cors());
 
+// API routes
 app.use("/api", schoolRoutes);
 
 module.exports = app;

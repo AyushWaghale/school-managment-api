@@ -3,10 +3,10 @@ const app = require("./src/app");
 
 const PORT = process.env.PORT || 3000;
 
-// Ensure PORT is correctly loaded
+// Check if PORT is defined
 if (!PORT) {
   console.error("❌ PORT is not defined in .env file!");
-  process.exit(1); // Stop the server if PORT is missing
+  process.exit(1); 
 }
 
 // Start the server
