@@ -5,16 +5,16 @@ const dbUrl = process.env.DATABASE_URL;
 
 if (!dbUrl) {
     console.error("❌ DATABASE_URL is not defined in .env file!");
-    process.exit(1); // Stop execution if URL is missing
+    process.exit(1); 
 }
 
 const parsedUrl = new URL(dbUrl);
 
 const pool = mysql.createPool({
-    host: parsedUrl.hostname, // mysql.railway.internal
-    user: parsedUrl.username, // root
-    password: parsedUrl.password, // MySQL password
-    database: parsedUrl.pathname.substring(1), // railway
+    host: parsedUrl.hostname,
+    user: parsedUrl.username, 
+    password: parsedUrl.password, 
+    database: parsedUrl.pathname.substring(1), 
     port: parsedUrl.port || 3306,
     waitForConnections: true,
     connectionLimit: 10,
@@ -29,7 +29,7 @@ pool.getConnection((err, connection) => {
     }
     console.log("✅ Connected to MySQL database.");
 
-    // ✅ Create `schools` table if not exists
+    // Create `schools` table if not exists
     const createTableQuery = `
         CREATE TABLE IF NOT EXISTS schools (
             id INT AUTO_INCREMENT PRIMARY KEY,

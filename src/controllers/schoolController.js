@@ -24,6 +24,7 @@ exports.listSchools = (req, res) => {
     School.getAll((err, results) => {
         if (err) return res.status(500).json({ error: err.message });
 
+        // Sort schools by distance
         const sortedSchools = results.map(school => ({
             ...school,
             distance: getDistance(latitude, longitude, school.latitude, school.longitude)
